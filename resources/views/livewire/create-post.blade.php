@@ -1,3 +1,11 @@
 <div>
-    <h1>Hola desde el componente</h1>
+    {{--<h1>{{$title}}</h1>
+    <h1>{{$name}}</h1>
+    <h1>{{$email}}</h1>--}}
+    <div>
+    <x-input type="text" wire:model.live="name"/>
+
+    <x-button wire:click="save">Save</x-button>
+    </div>
+    {{$name}}
 </div>
