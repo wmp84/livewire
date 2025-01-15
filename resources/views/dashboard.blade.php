@@ -8,7 +8,6 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @livewire('create-post')
-            <p>Fuera del componente</p>
         </div>
     </div>
 </x-app-layout>

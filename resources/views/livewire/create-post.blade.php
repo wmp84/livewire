@@ -1,3 +1,3 @@
 <div>
-    <h1>Hola desde create-post</h1>
+    <h1>Hola desde el componente</h1>
 </div>
