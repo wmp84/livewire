@@ -12,6 +12,7 @@ class Paises extends Component
         'Argentina'
     ];
     public $pais;
+    public $active;
 
     public function save()
     {
@@ -22,6 +23,11 @@ class Paises extends Component
     public function delete($index)
     {
         unset($this->paises[$index]);
+    }
+
+    public function changeActive($pais)
+    {
+        $this->active = $pais;
     }
 
     public function render()
