@@ -13,6 +13,7 @@ class Formulario extends Component
     public $category_id = '', $title, $content;
     public $selectedTags = [];
     public $posts;
+    public $open = false;
 
     public function mount()
     {
@@ -29,6 +30,11 @@ class Formulario extends Component
         $post->tags()->attach($this->selectedTags);
         $this->reset(['category_id', 'title', 'content', 'selectedTags']);
         $this->posts = Post::all();
+    }
+
+    public function edit($postId)
+    {
+        $this->open=true;
     }
 
     public function render()
