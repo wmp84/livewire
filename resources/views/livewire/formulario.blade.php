@@ -61,15 +61,15 @@
                         <form wire:submit="update">
                             <div class="mb-4">
                                 <x-label>Nombre</x-label>
-                                <x-input class="w-full" wire:model="title" required/>
+                                <x-input class="w-full" wire:model="postEdit.title" required/>
                             </div>
                             <div class="mb-4">
                                 <x-label>Contenido</x-label>
-                                <x-textarea class="w-full" wire:model="content" required/>
+                                <x-textarea class="w-full" wire:model="postEdit.content" required/>
                             </div>
                             <div class="mb-4">
                                 <x-label>Categoría</x-label>
-                                <x-select wire:model="category_id">
+                                <x-select wire:model="postEdit.category_id">
                                     <option value="" disabled>Seleccione una categoría</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">
@@ -84,7 +84,7 @@
                                     @foreach($tags as $tag)
                                         <li>
                                             <x-label>
-                                                <x-checkbox wire:model="selectedTags" value="{{$tag->id}}"/>
+                                                <x-checkbox wire:model="postEdit.tags" value="{{$tag->id}}"/>
                                                 {{$tag->name}}
                                             </x-label>
                                         </li>
