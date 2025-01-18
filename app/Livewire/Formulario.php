@@ -31,6 +31,17 @@ class Formulario extends Component
 
     public function save()
     {
+        $this->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'category_id' => 'required|exists:categories,id',
+            'selectedTags' => 'required|array'
+        ],[
+            'title.required'=>'El campo título es requerido',
+            'content.required'=>'El campo contenido es requerido',
+            'category_id.required'=>'Debe seleccionar una categoría',
+            'selectedTags.required'=>'Debe seleccionar por lo menos una etiqueta',
+        ]);
         $post = Post::create(
             $this->only('category_id', 'title', 'content')
         );
