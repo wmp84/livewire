@@ -64,6 +64,15 @@
                 <x-button>Crear</x-button>
             </div>
         </form>
+{{--            <div class="justify-between" wire:loading.flex>--}}
+            <div wire:loading.delay>
+                <div>
+                    Hello world
+                </div>
+            </div>
+        {{--<div wire:loading wire:target="save">
+            Procesando...
+        </div>--}}
     </div>
     <div class="bg-white shadow rounded-lg p-6">
         <ul class="list-disc list-inside space-y-2">
