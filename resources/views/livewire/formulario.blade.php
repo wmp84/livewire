@@ -66,6 +66,13 @@
         </form>
     </div>
     <div class="bg-white shadow rounded-lg p-6">
+        <div class="mb-4">
+            <x-input
+                class="w-full"
+                placeholder="Buscar..."
+                wire:model.live="search"
+            />
+        </div>
         <ul class="list-disc list-inside space-y-2">
             @forelse($posts as $post)
                 <li class="flex justify-between" wire:key="post-{{$post->id}}">
@@ -79,7 +86,6 @@
             @endforelse
         </ul>
         <div class="mt-4">
-{{--            {{$posts->links('vendor.livewire.simple-tailwind')}}--}}
             {{$posts->links()}}
         </div>
     </div>
