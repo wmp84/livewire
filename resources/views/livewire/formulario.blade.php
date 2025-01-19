@@ -13,7 +13,7 @@
             </div>
             <div class="mb-4">
                 <x-label>Categoría</x-label>
-                <x-select wire:model="postCreate.category_id">
+                <x-select wire:model.live="postCreate.category_id">
                     <option value="" disabled>Seleccione una categoría</option>
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">

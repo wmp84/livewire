@@ -16,6 +16,7 @@ class Formulario extends Component
     public PostEditForm $postEdit;
     public $posts;
 
+    // Ciclo de vida de un componente
     public function mount()
     {
         $this->categories = Category::all();
@@ -23,11 +24,35 @@ class Formulario extends Component
         $this->posts = Post::all();
     }
 
+    public function updating($property, $value)
+    {
+        if ($property == 'postCreate.category_id') {
+            if ($value > 3) {
+                throw new \Exception("No seleccionable");
+            }
+        }
+    }
+
+    public function updated($property, $value)
+    {
+
+    }
+
+    public function hydrate()
+    {
+
+    }
+
+    public function dehydrate()
+    {
+
+    }
+
     public function save()
     {
         $this->postCreate->save();
         $this->posts = Post::all();
-        $this->dispatch('post-created','Nuevo artículo creado');
+        $this->dispatch('post-created', 'Nuevo artículo creado');
     }
 
     public function edit($postId)
@@ -40,7 +65,7 @@ class Formulario extends Component
     {
         $this->postEdit->update();
         $this->posts = Post::all();
-        $this->dispatch('post-created','Artículo actualizado');
+        $this->dispatch('post-created', 'Artículo actualizado');
     }
 
     public function destroy($postId)
@@ -48,7 +73,7 @@ class Formulario extends Component
         $post = Post::find($postId);
         $post->delete();
         $this->posts = Post::all();
-        $this->dispatch('post-created','Artículo eliminado');
+        $this->dispatch('post-created', 'Artículo eliminado');
     }
 
     public function render()
