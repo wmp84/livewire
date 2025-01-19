@@ -58,7 +58,7 @@
     </div>
     {{--Formulario para editar--}}
     <form wire:submit="update">
-        <x-dialog-modal wire:model="open">
+        <x-dialog-modal wire:model="postEdit.open">
             <x-slot name="title">
                 Actualizar post
             </x-slot>
@@ -103,7 +103,7 @@
             </x-slot>
             <x-slot name="footer">
                 <div class="flex justify-end">
-                    <x-secondary-button class="mr-2" wire:click="$set('open', false)">Cancelar
+                    <x-secondary-button class="mr-2" wire:click="$set('postEdit.open', false)">Cancelar
                     </x-secondary-button>
                     <x-button>Actualizar</x-button>
                 </div>
