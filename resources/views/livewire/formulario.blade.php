@@ -1,5 +1,8 @@
 <div>
     <div class="bg-white shadow rounded-lg p-6 mb-8">
+        @if($postCreate->image)
+            <img src="{{$postCreate->image->temporaryUrl()}}" alt="">
+        @endif
         <form wire:submit="save">
             <div class="mb-4">
                 <x-label>Nombre</x-label>
@@ -22,6 +25,10 @@
                     @endforeach
                 </x-select>
                 <x-input-error for="postCreate.category_id"/>
+            </div>
+            <div class="mb-4">
+                <x-label>Imagen</x-label>
+                <input type="file" wire:model="postCreate.image"/>
             </div>
             <div class="mb-4">
                 <x-label>Etiquetas</x-label>
@@ -113,9 +120,9 @@
     @push('js')
         <script>
             // document.addEventListener('livewire:initialized', function () {
-                Livewire.on('post-created', function (comment) {
-                    console.log(comment[0])
-                })
+            Livewire.on('post-created', function (comment) {
+                console.log(comment[0])
+            })
             // })
         </script>
     @endpush

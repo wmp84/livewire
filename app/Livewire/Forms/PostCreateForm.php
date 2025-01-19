@@ -16,6 +16,9 @@ class PostCreateForm extends Form
     public $category_id = '';
     #[Rule('required|array')]
     public $tags = [];
+    #[Rule('nullable|image|max:1024')]
+    public $image;
+
     public function save()
     {
         $this->validate();
@@ -23,6 +26,10 @@ class PostCreateForm extends Form
             $this->only('title', 'content', 'category_id')
         );
         $post->tags()->attach($this->tags);
+        if ($this->image) {
+            $post->image_path = $this->image->store('posts');
+            $post->save();
+        }
         $this->reset();
     }
 }

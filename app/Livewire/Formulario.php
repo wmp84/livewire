@@ -7,12 +7,12 @@ use App\Livewire\Forms\PostEditForm;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Livewire\Attributes\Lazy;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
-#[Lazy]
 class Formulario extends Component
 {
+    use WithFileUploads;
     public $categories, $tags;
     public PostCreateForm $postCreate;
     public PostEditForm $postEdit;
