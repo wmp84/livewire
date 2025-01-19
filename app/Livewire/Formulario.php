@@ -7,8 +7,10 @@ use App\Livewire\Forms\PostEditForm;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 
+#[Lazy]
 class Formulario extends Component
 {
     public $categories, $tags;
@@ -50,11 +52,6 @@ class Formulario extends Component
         $post->delete();
         $this->posts = Post::all();
         $this->dispatch('post-created', 'Artículo eliminado');
-    }
-
-    public function placeholder()
-    {
-        return view('livewire.placeholders.skeleton');
     }
 
     public function render()
