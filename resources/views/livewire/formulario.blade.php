@@ -3,7 +3,7 @@
         <form wire:submit="save">
             <div class="mb-4">
                 <x-label>Nombre</x-label>
-                <x-input class="w-full" wire:model="postCreate.title"/>
+                <x-input class="w-full" wire:model.live="postCreate.title"/>
                 <x-input-error for="postCreate.title"/>
             </div>
             <div class="mb-4">
