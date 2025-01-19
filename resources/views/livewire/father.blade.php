@@ -23,7 +23,7 @@
     </div>
 
     @push('js')
-        
+
     @endpush
     {{--<script data-navigate-once>
         //console.log('Hola desde componente padre')
